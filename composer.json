@@ -1,0 +1,5 @@
+{
+    "require": {
+        "jclg/php-slack-bot": "^0.0.6"
+    }
+}
