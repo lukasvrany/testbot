@@ -13,9 +13,6 @@ class MyCommand extends \PhpSlackBot\Command\BaseCommand {
 	protected function execute($data, $context) {
 
 		if ($data['type'] == 'reaction_added') {
-			$channel = $this->getChannelNameFromChannelId($data['channel']);
-			$username = $this->getUserNameFromUserId($data['user']);
-			echo $username.' from '.($channel ? $channel : 'DIRECT MESSAGE').' : '.$data['text'].PHP_EOL;
 			$this->send($this->getCurrentChannel(), null, $data['reaction']);
 		}
 
