@@ -12,7 +12,7 @@ class MyCommand extends \PhpSlackBot\Command\BaseCommand {
 
 	protected function execute($data, $context) {
 		if ($data['type'] === 'reaction_added') {
-			$this->send($this->getCurrentChannel(), null, $data['reaction']);
+			$this->send($data['item']['channel'], null, $data['reaction']);
 		}
 
 		if ($data['type'] === 'message') {
