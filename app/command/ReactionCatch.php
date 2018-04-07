@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
-// Custom command
+namespace app\command;
+
 class ReactionCatch extends \PhpSlackBot\Command\BaseCommand {
 
 	protected function configure() {

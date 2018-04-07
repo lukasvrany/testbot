@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+namespace app\command;
+
 class Leaderboard {
 
 	protected function configure() {
