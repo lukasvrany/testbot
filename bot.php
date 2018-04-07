@@ -26,6 +26,6 @@ class MyCommand extends \PhpSlackBot\Command\BaseCommand {
 $bot = new Bot();
 $bot->setToken(getenv('SLACK_TOKEN')); // Get your token here https://my.slack.com/services/new/bot
 //$bot->loadCommand(new MyCommand());
-$bot->loadCatchAllCommand(new SuperCommand());
+$bot->loadCatchAllCommand(new MyCommand());
 //$bot->loadInternalCommands(); // This loads example commands
 $bot->run();
