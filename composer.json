@@ -1,5 +1,6 @@
 {
     "require": {
-        "jclg/php-slack-bot": "^0.0.6"
+        "jclg/php-slack-bot": "^0.0.6",
+        "ext-mbstring": "*"
     }
 }
