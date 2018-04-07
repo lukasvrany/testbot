@@ -7,14 +7,17 @@ use PhpSlackBot\Bot;
 class MyCommand extends \PhpSlackBot\Command\BaseCommand {
 
 	protected function configure() {
-		$this->setName('mycommand');
+
 	}
 
-	protected function execute($message, $context) {
+	protected function execute($data, $context) {
 
-		$this->send($this->getCurrentChannel(), null, $message['type']);
-
-		$this->send($this->getCurrentChannel(), null, 'Hello !');
+		if ($data['type'] == 'reaction_added') {
+			$channel = $this->getChannelNameFromChannelId($data['channel']);
+			$username = $this->getUserNameFromUserId($data['user']);
+			echo $username.' from '.($channel ? $channel : 'DIRECT MESSAGE').' : '.$data['text'].PHP_EOL;
+			$this->send($this->getCurrentChannel(), null, $data['reaction']);
+		}
 
 	}
 
@@ -22,6 +25,7 @@ class MyCommand extends \PhpSlackBot\Command\BaseCommand {
 
 $bot = new Bot();
 $bot->setToken(getenv('SLACK_TOKEN')); // Get your token here https://my.slack.com/services/new/bot
-$bot->loadCommand(new MyCommand());
-$bot->loadInternalCommands(); // This loads example commands
+//$bot->loadCommand(new MyCommand());
+$bot->loadCatchAllCommand(new SuperCommand());
+//$bot->loadInternalCommands(); // This loads example commands
 $bot->run();
