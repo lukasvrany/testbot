@@ -11,9 +11,12 @@ class MyCommand extends \PhpSlackBot\Command\BaseCommand {
 	}
 
 	protected function execute($data, $context) {
-		$this->send($this->getCurrentChannel(), null, "Ahoj");
-		if ($data['type'] == 'reaction_added') {
+		if ($data['type'] === 'reaction_added') {
 			$this->send($this->getCurrentChannel(), null, $data['reaction']);
+		}
+
+		if ($data['type'] === 'message') {
+			$this->send($this->getCurrentChannel(), null, "Hi");
 		}
 
 	}
@@ -25,4 +28,4 @@ $bot->setToken(getenv('SLACK_TOKEN')); // Get your token here https://my.slack.c
 //$bot->loadCommand(new MyCommand());
 $bot->loadCatchAllCommand(new MyCommand());
 //$bot->loadInternalCommands(); // This loads example commands
-$bot->run();
+$bot->run();y
