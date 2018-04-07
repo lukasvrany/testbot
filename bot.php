@@ -11,8 +11,11 @@ class MyCommand extends \PhpSlackBot\Command\BaseCommand {
 	}
 
 	protected function execute($message, $context) {
+
+		$this->send($this->getCurrentChannel(), null, $message['type']);
+
 		$this->send($this->getCurrentChannel(), null, 'Hello !');
-		$this->send($this->getCurrentChannel(), null, $message);
+
 	}
 
 }
