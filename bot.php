@@ -28,4 +28,4 @@ $bot->setToken(getenv('SLACK_TOKEN')); // Get your token here https://my.slack.c
 //$bot->loadCommand(new MyCommand());
 $bot->loadCatchAllCommand(new MyCommand());
 //$bot->loadInternalCommands(); // This loads example commands
-$bot->run();y
+$bot->run();
