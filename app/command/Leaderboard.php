@@ -2,7 +2,7 @@
 
 namespace app\command;
 
-class Leaderboard {
+class Leaderboard extends \PhpSlackBot\Command\BaseCommand {
 
 	protected function configure() {
 		$this->setName('Bonami tabule');
